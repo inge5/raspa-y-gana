@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PeticionesService } from 'src/app/services/peticiones.service';
 
@@ -18,13 +18,13 @@ export class HomeComponent implements OnInit {
 
   crearFormulario(){
     this.formulario = this.fb.group({
-      name: [''],
-      document: [''],
-      email: [''],
-      phone: [''],
-      code: [''],
+      name: ['', Validators.required],
+      document: ['', [Validators.required, Validators.min(1000000000), Validators.max(9999999999)]],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required, Validators.min(1000000000), Validators.max(9999999999)]],
+      code: ['', [Validators.required, Validators.min(10000000000000000000), Validators.max(99999999999999999999)]],
       points: [''],
-      acepto: [false]
+      acepto: [false, Validators.required]
     })
   }
 
@@ -37,7 +37,57 @@ export class HomeComponent implements OnInit {
     this.crearFormulario();
   }
 
+  get Name(){
+    return this.formulario.get('name');
+  }
+  get Document(){
+    return this.formulario.get('document');
+  }
+  get Email(){
+    return this.formulario.get('email');
+  }
+  get Phone(){
+    return this.formulario.get('phone');
+  }
+  get Code(){
+    return this.formulario.get('code');
+  }
+
+  get validarName(){
+    return this.formulario.get('name')?.invalid && (this.formulario.get('name')?.dirty || this.formulario.get('name')?.touched);
+  }
+  get validarDocument(){
+    return this.formulario.get('document')?.invalid && (this.formulario.get('document')?.dirty || this.formulario.get('document')?.touched);
+  }
+  get validarEmail(){
+    return this.formulario.get('email')?.invalid && (this.formulario.get('email')?.dirty || this.formulario.get('email')?.touched);
+  }
+  get validarPhone(){
+    return this.formulario.get('phone')?.invalid && (this.formulario.get('phone')?.dirty || this.formulario.get('phone')?.touched);
+  }
+  get validarCode(){
+    return this.formulario.get('code')?.invalid && (this.formulario.get('code')?.dirty || this.formulario.get('code')?.touched);
+  }
+
+  get correctoName(){
+    return this.Name?.valid;
+  }
+  get correctoDocument(){
+    return this.Document?.valid;
+  }
+  get correctoEmail(){
+    return this.Email?.valid;
+  }
+  get correctoPhone(){
+    return this.Phone?.valid;
+  }
+  get correctoCode(){
+    return this.Code?.valid;
+  }
+
+
   PasarRuleta(){
+    console.log(this.formulario);
     if(this.formulario.invalid && !this.formulario.get('acepto')!.value){
       return Object.values(this.formulario.controls).forEach(control => {
         control.markAsTouched();
@@ -52,9 +102,10 @@ export class HomeComponent implements OnInit {
       alert('Debes aceptar terminos y condiciones');
       return;
     }
-    let phone:number = this.formulario.get('phone')!.value
-    let points:number = this.formulario.get('points')!.value
+    let phone:number = this.Phone!.value
+    let code:number = this.Code!.value;
     this.formulario.controls['phone'].setValue(phone.toString())
+    this.formulario.controls['code'].setValue(code.toString());
     sessionStorage.setItem('user', JSON.stringify(this.formulario.value))
     this.router.navigateByUrl('/ruleta');
   }

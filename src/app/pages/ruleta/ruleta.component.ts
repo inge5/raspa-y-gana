@@ -39,8 +39,10 @@ export class RuletaComponent implements OnInit {
       if(resp.is_100_available){
         valor = 50;
         rand = 1120;
+      }else if(resp.is_50_available){
+        valor = 15;
+        rand = 1080
       }else{
-        
         valor = (valor - parseInt(valor.toString().split(".")[0]))*360;
         if(valor > 23 && valor <= 66){
           valor = 6.918950726618235;
@@ -100,7 +102,6 @@ export class RuletaComponent implements OnInit {
                 $('#btn-girar').remove();
               });
           }, (errors: any) => {
-            console.log(errors);
             Swal.fire('El código ya está en uso', '', 'error');
           })
         break;
@@ -207,7 +208,6 @@ export class RuletaComponent implements OnInit {
   consultarPuntos(){
     this.peticiones.consultarPuntos({document: this.user.document}).subscribe((resp: any) => {
       this.combos = resp.rewards;
-      console.log(resp.rewards);
     }, (errors: any) => {
       if(errors.error.errors?.document[0]){
         Swal.fire('No existe ese número de documento.', '', 'error');

@@ -27,7 +27,6 @@ export class RedimirComponent implements OnInit {
   consultarPuntos(){
     this.peticiones.consultarPuntos({document: this.user.document}).subscribe((resp: any) => {
       this.combos = resp.rewards;
-      console.log(resp.rewards);
     }, (errors: any) => {
       if(errors.error.errors?.document[0]){
         Swal.fire('No existe ese número de documento.', '', 'error');

@@ -17,21 +17,55 @@
         <h3 class="p-2 text-center text-white m-0 bg-header-form fw-bold px-xs-5">Regístrate</h3>
         <form (ngSubmit)="PasarRuleta()" [formGroup]="formulario" class="p-4 body-form px-xs-5">
             <div class="form-group mb-2">
-                <input type="text" placeholder="Nombre:" class="form-control input-form" formControlName="name">
+                <input type="text" placeholder="Nombre:" class="form-control input-form" [ngClass]="{'is-invalid': validarName, 'is-valid': correctoName}" formControlName="name">
+                <ng-container *ngIf="Name?.touched && Name?.errors?.required">
+                    <label class="text-danger fw-bold">El campo Nombre es requerido</label>
+                </ng-container>
             </div>
             <div class="form-group mb-2">
-                <input type="number" placeholder="Cédula:" class="form-control input-form" formControlName="document">
+                <input type="number" placeholder="Cédula:" class="form-control input-form" [ngClass]="{'is-invalid': validarDocument, 'is-valid': correctoDocument}" formControlName="document">
+                <ng-container *ngIf="Document?.touched && Document?.errors?.required">
+                    <label class="text-danger fw-bold">El campo Cédula es requerido</label>
+                </ng-container>
+                <ng-container *ngIf="Document?.errors?.min">
+                    <label class="text-danger fw-bold">Debe tener como 10 caracteres</label>
+                </ng-container>
+                <ng-container *ngIf="Document?.errors?.max">
+                    <label class="text-danger fw-bold">Debe tener como 10 caracteres</label>
+                </ng-container>
             </div>
             <div class="form-group mb-2">
-                <input type="text" placeholder="Correo electrónico:" class="form-control input-form"
-                    formControlName="email">
+                <input type="text" placeholder="Correo electrónico:" class="form-control input-form" [ngClass]="{'is-invalid': validarEmail, 'is-valid': correctoEmail}" formControlName="email">
+                <ng-container *ngIf="Email?.touched && Email?.errors?.required">
+                    <label class="text-danger fw-bold">El campo Correo electrónico es requerido</label>
+                </ng-container>
             </div>
             <div class="form-group mb-2">
-                <input type="number" placeholder="Celular:" class="form-control input-form" formControlName="phone">
+                <input type="number" placeholder="Celular:" class="form-control input-form" [ngClass]="{'is-invalid': validarPhone, 'is-valid': correctoPhone}" formControlName="phone">
+                <ng-container *ngIf="Phone?.touched && Phone?.errors?.required">
+                    <label class="text-danger fw-bold">El campo Celular es requerido</label>
+                </ng-container>
+                <ng-container *ngIf="Phone?.errors?.min">
+                    <label class="text-danger fw-bold">Debe tener como 10 caracteres</label>
+                </ng-container>
+                <ng-container *ngIf="Phone?.errors?.max">
+                    <label class="text-danger fw-bold">Debe tener como 10 caracteres</label>
+                </ng-container>
             </div>
             <div class="form-group mb-2">
-                <input type="text" placeholder="Ingresa el código:" class="form-control input-form"
-                    formControlName="code">
+                <input type="number" placeholder="Ingresa el código:" class="form-control input-form" [ngClass]="{'is-invalid': validarCode, 'is-valid': correctoCode}" formControlName="code">
+                <ng-container *ngIf="Code?.touched && Code?.errors?.required">
+                    <label class="text-danger fw-bold">El campo Código es requerido</label>
+                </ng-container>
+                <ng-container *ngIf="Code?.errors?.min">
+                    <label class="text-danger fw-bold">Debe tener como 20 caracteres</label>
+                </ng-container>
+                <ng-container *ngIf="Code?.errors?.max">
+                    <label class="text-danger fw-bold">Debe tener como 20 caracteres</label>
+                </ng-container>
+            </div>
+            <div class="form-group mb-4">
+                <label class="text-white">Digita el código del Raspa Y Gana</label>
             </div>
             <div class="form-group mb-2">
                 <div class="form-check">
@@ -75,6 +109,27 @@
     </div>
     <div>
         <img src="./assets/redime/COMBO3icons.png" alt="combo-3" class="img-fluid">
+        <p class="mb-0 mt-4 text-center text-white" style="font-size: 17px;">Picadoras, baterías de</p>
+        <p class="mb-0 text-center text-white" style="font-size: 17px;">cocina, planchas,</p>
+        <p class=" mb-0 text-center text-white" style="font-size: 17px;">sandwicheras.</p>
+        <img src="./assets/redime/2000puntosboton.png" alt="2000puntos" class="img-fluid">
+    </div>
+    <div>
+        <img src="./assets/redime/COMBO4icons.png" alt="combo-3" class="img-fluid">
+        <p class="mb-0 mt-4 text-center text-white" style="font-size: 17px;">Picadoras, baterías de</p>
+        <p class="mb-0 text-center text-white" style="font-size: 17px;">cocina, planchas,</p>
+        <p class=" mb-0 text-center text-white" style="font-size: 17px;">sandwicheras.</p>
+        <img src="./assets/redime/2000puntosboton.png" alt="2000puntos" class="img-fluid">
+    </div>
+    <div>
+        <img src="./assets/redime/COMBO5icons.png" alt="combo-3" class="img-fluid">
+        <p class="mb-0 mt-4 text-center text-white" style="font-size: 17px;">Picadoras, baterías de</p>
+        <p class="mb-0 text-center text-white" style="font-size: 17px;">cocina, planchas,</p>
+        <p class=" mb-0 text-center text-white" style="font-size: 17px;">sandwicheras.</p>
+        <img src="./assets/redime/2000puntosboton.png" alt="2000puntos" class="img-fluid">
+    </div>
+    <div>
+        <img src="./assets/redime/COMBO6icons.png" alt="combo-3" class="img-fluid">
         <p class="mb-0 mt-4 text-center text-white" style="font-size: 17px;">Picadoras, baterías de</p>
         <p class="mb-0 text-center text-white" style="font-size: 17px;">cocina, planchas,</p>
         <p class=" mb-0 text-center text-white" style="font-size: 17px;">sandwicheras.</p>
