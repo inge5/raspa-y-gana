@@ -1,0 +1,84 @@
+<app-logo-header ruta=""></app-logo-header>
+<div class="row mt-5">
+    <div class="col-lg-8 col-sm-12">
+        <div class="d-flex">
+            <div class="" style="z-index: 1;">
+                <img src="./assets/home/mano_1home.png" alt="mano" class="img-fluid">
+            </div>
+            <div class="" style="transform: translate(-25%, 27%);">
+                <img src="./assets/home/raspa_1home.png" alt="mano" class="img-fluid">
+            </div>
+        </div>
+        <div class="mt-5 ms-5">
+            <img src="./assets/home/tarjetones_1home.png" alt="tarjetones" class="img-fluid">
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-12 p-0 w-50 form-centrar-movil w-lg-25 w-xs-100" style="border-radius: 23px;">
+        <h3 class="p-2 text-center text-white m-0 bg-header-form fw-bold px-xs-5">Regístrate</h3>
+        <form (ngSubmit)="PasarRuleta()" [formGroup]="formulario" class="p-4 body-form px-xs-5">
+            <div class="form-group mb-2">
+                <input type="text" placeholder="Nombre:" class="form-control input-form" formControlName="name">
+            </div>
+            <div class="form-group mb-2">
+                <input type="number" placeholder="Cédula:" class="form-control input-form" formControlName="document">
+            </div>
+            <div class="form-group mb-2">
+                <input type="text" placeholder="Correo electrónico:" class="form-control input-form"
+                    formControlName="email">
+            </div>
+            <div class="form-group mb-2">
+                <input type="number" placeholder="Celular:" class="form-control input-form" formControlName="phone">
+            </div>
+            <div class="form-group mb-2">
+                <input type="text" placeholder="Ingresa el código:" class="form-control input-form"
+                    formControlName="code">
+            </div>
+            <div class="form-group mb-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="flexCheckDefault" formControlName="acepto"
+                        name="acepto">
+                    <label class="form-check-label text-white" for="flexCheckDefault">
+                        Acepto política de datos
+                    </label>
+                </div>
+            </div>
+            <div class="form-group text-center mt-4">
+                <button class="btn btn-blanco-form btn-lg btn-form" type="submit">Juega</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-md-6">
+        <img src="./assets/home/te_gustan_4home.png" alt="te-gusta-home" class="img-fluid">
+    </div>
+    <div class="col-md-6">
+        <img src="./assets/home/ruleta_fullRecurso_1_1home.png" alt="ruleta-home" class="img-fluid">
+    </div>
+</div>
+<div class="d-flex justify-content-center align-items-center">
+    <div>
+        <img src="./assets/home/tus_puntos_1home.png" alt="puntos" class="img-fluid">
+    </div>
+</div>
+<div class="d-flex flex-wrap justify-content-center" style="gap: 78px;">
+    <div>
+        <img src="./assets/redime/COMBO1icons.png" alt="combo-1" class="img-fluid">
+        <p class="mb-0 mt-4 text-center text-white" style="font-size: 17px;">Lapiceros, llaveros,</p>
+        <p class="mb-4 text-center text-white" style="font-size: 17px;">paraguas, termos.</p>
+        <img src="./assets/redime/1000puntosboton.png" alt="1000puntos" class="img-fluid">
+    </div>
+    <div>
+        <img src="./assets/redime/COMBO2icons.png" alt="combo-2" class="img-fluid">
+        <p class="mb-5 mt-4 text-center text-white" style="font-size: 17px;">Termos, audífonos.</p>
+        <img src="./assets/redime/1500puntosboton.png" alt="1500puntos" class="img-fluid">
+    </div>
+    <div>
+        <img src="./assets/redime/COMBO3icons.png" alt="combo-3" class="img-fluid">
+        <p class="mb-0 mt-4 text-center text-white" style="font-size: 17px;">Picadoras, baterías de</p>
+        <p class="mb-0 text-center text-white" style="font-size: 17px;">cocina, planchas,</p>
+        <p class=" mb-0 text-center text-white" style="font-size: 17px;">sandwicheras.</p>
+        <img src="./assets/redime/2000puntosboton.png" alt="2000puntos" class="img-fluid">
+    </div>
+</div>
+<app-logo-footer></app-logo-footer>

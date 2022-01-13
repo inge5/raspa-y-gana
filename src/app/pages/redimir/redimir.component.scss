@@ -1,0 +1,37 @@
+@import '../../../styles.scss';
+
+.text-morado{
+    color: $morado;
+}
+.sobreponer-tarjeta{
+    top: 25%;
+    left: 18%;
+}
+.btn-amarillo{
+    background-color: #FFC700;
+    color: #016633;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.btn-amarillo:hover{
+    background-color: #016633;
+    color: #FFC700;
+}
+.btn-amarillo:active{
+    background-color: #FFC700;
+    color: #016633;
+}
+.btn-verde{
+    background-color: #016633;
+    color: #FFC700;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.btn-verde:hover{
+    background-color: #FFC700;
+    color: #016633;
+}
+.btn-verde:active{
+    background-color: #016633;
+    color: #FFC700;
+}

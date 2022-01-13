@@ -1,0 +1,51 @@
+.postition-relative{
+    position: relative;
+}
+.position-absolute{
+    position: absolute;
+}
+.centrar-disco{
+    left: 20%;
+    bottom: 27%;
+}
+.centrar-tapa{
+    left: 19%;
+    bottom: 26%;
+}
+.ruleta{
+    z-index: 100;
+    transition: 5s all;
+    width: 60%;
+}
+.tapa-disco{
+    z-index: 101;
+    width: 62.4%;
+}
+.btn-amarillo{
+    background-color: #FFC700;
+    color: #016633;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.btn-amarillo:hover{
+    background-color: #016633;
+    color: #FFC700;
+}
+.btn-amarillo:active{
+    background-color: #FFC700;
+    color: #016633;
+}
+.btn-verde{
+    background-color: #016633;
+    color: #FFC700;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.btn-verde:hover{
+    background-color: #FFC700;
+    color: #016633;
+}
+.btn-verde:active{
+    background-color: #016633;
+    color: #FFC700;
+}
