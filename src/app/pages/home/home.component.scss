@@ -20,6 +20,20 @@
     border-radius: 35px;
     text-transform: uppercase;
 }
+.btn-amarillo{
+    background-color: #FFC700;
+    color: #016633;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.btn-amarillo:hover{
+    background-color: #016633;
+    color: #FFC700;
+}
+.btn-amarillo:active{
+    background-color: #FFC700;
+    color: #016633;
+}
 .btn-blanco-form{
     background-color: #fff;
     color: #016633;

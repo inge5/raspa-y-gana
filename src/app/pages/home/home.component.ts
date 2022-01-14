@@ -19,9 +19,9 @@ export class HomeComponent implements OnInit {
   crearFormulario(){
     this.formulario = this.fb.group({
       name: ['', Validators.required],
-      document: ['', [Validators.required, Validators.min(1000000000), Validators.max(9999999999)]],
+      document: ['', [Validators.required, Validators.min(100000), Validators.max(9999999999)]],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.min(1000000000), Validators.max(9999999999)]],
+      phone: ['', [Validators.required, Validators.min(1000000), Validators.max(9999999999)]],
       code: ['', [Validators.required, Validators.min(10000000000000000000), Validators.max(99999999999999999999)]],
       points: [''],
       acepto: [false, Validators.required]

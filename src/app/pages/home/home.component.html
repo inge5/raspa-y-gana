@@ -28,10 +28,10 @@
                     <label class="text-danger fw-bold">El campo Cédula es requerido</label>
                 </ng-container>
                 <ng-container *ngIf="Document?.errors?.min">
-                    <label class="text-danger fw-bold">Debe tener como 10 caracteres</label>
+                    <label class="text-danger fw-bold">Debe tener mínimo 6 caracteres</label>
                 </ng-container>
                 <ng-container *ngIf="Document?.errors?.max">
-                    <label class="text-danger fw-bold">Debe tener como 10 caracteres</label>
+                    <label class="text-danger fw-bold">Debe tener máximo 10 caracteres</label>
                 </ng-container>
             </div>
             <div class="form-group mb-2">
@@ -46,10 +46,10 @@
                     <label class="text-danger fw-bold">El campo Celular es requerido</label>
                 </ng-container>
                 <ng-container *ngIf="Phone?.errors?.min">
-                    <label class="text-danger fw-bold">Debe tener como 10 caracteres</label>
+                    <label class="text-danger fw-bold">Debe tener mínimo 7 caracteres</label>
                 </ng-container>
                 <ng-container *ngIf="Phone?.errors?.max">
-                    <label class="text-danger fw-bold">Debe tener como 10 caracteres</label>
+                    <label class="text-danger fw-bold">Debe tener máximo 10 caracteres</label>
                 </ng-container>
             </div>
             <div class="form-group mb-2">
@@ -58,10 +58,10 @@
                     <label class="text-danger fw-bold">El campo Código es requerido</label>
                 </ng-container>
                 <ng-container *ngIf="Code?.errors?.min">
-                    <label class="text-danger fw-bold">Debe tener como 20 caracteres</label>
+                    <label class="text-danger fw-bold">Debe tener mínimo 20 caracteres</label>
                 </ng-container>
                 <ng-container *ngIf="Code?.errors?.max">
-                    <label class="text-danger fw-bold">Debe tener como 20 caracteres</label>
+                    <label class="text-danger fw-bold">Debe tener máximo 20 caracteres</label>
                 </ng-container>
             </div>
             <div class="form-group mb-4">
@@ -96,44 +96,35 @@
     </div>
 </div>
 <div class="d-flex flex-wrap justify-content-center" style="gap: 78px;">
-    <div>
+    <div class="d-flex justify-content-center flex-column align-items-center">
         <img src="./assets/redime/COMBO1icons.png" alt="combo-1" class="img-fluid">
-        <p class="mb-0 mt-4 text-center text-white" style="font-size: 17px;">Lapiceros, llaveros,</p>
-        <p class="mb-4 text-center text-white" style="font-size: 17px;">paraguas, termos.</p>
-        <img src="./assets/redime/1000puntosboton.png" alt="1000puntos" class="img-fluid">
+        <p class="mb-4 mt-4 text-center text-white" style="font-size: 17px;">Llavero + Lapicero + Audífonos</p>
+        <button class="btn btn-amarillo btn-lg">500Pts</button>
     </div>
-    <div>
+    <div class="d-flex justify-content-center flex-column align-items-center">
         <img src="./assets/redime/COMBO2icons.png" alt="combo-2" class="img-fluid">
-        <p class="mb-5 mt-4 text-center text-white" style="font-size: 17px;">Termos, audífonos.</p>
-        <img src="./assets/redime/1500puntosboton.png" alt="1500puntos" class="img-fluid">
+        <p class="mb-4 mt-4 text-center text-white" style="font-size: 17px;">Termos + Lapicero.</p>
+        <button class="btn btn-amarillo btn-lg">1000Pts</button>
     </div>
-    <div>
+    <div class="d-flex justify-content-center flex-column align-items-center">
         <img src="./assets/redime/COMBO3icons.png" alt="combo-3" class="img-fluid">
-        <p class="mb-0 mt-4 text-center text-white" style="font-size: 17px;">Picadoras, baterías de</p>
-        <p class="mb-0 text-center text-white" style="font-size: 17px;">cocina, planchas,</p>
-        <p class=" mb-0 text-center text-white" style="font-size: 17px;">sandwicheras.</p>
-        <img src="./assets/redime/2000puntosboton.png" alt="2000puntos" class="img-fluid">
+        <p class="mb-4 mt-4 text-center text-white" style="font-size: 17px;">Paraguas + Plancha</p>
+        <button class="btn btn-amarillo btn-lg">1200Pts</button>
     </div>
-    <div>
+    <div class="d-flex justify-content-center flex-column align-items-center">
         <img src="./assets/redime/COMBO4icons.png" alt="combo-3" class="img-fluid">
-        <p class="mb-0 mt-4 text-center text-white" style="font-size: 17px;">Picadoras, baterías de</p>
-        <p class="mb-0 text-center text-white" style="font-size: 17px;">cocina, planchas,</p>
-        <p class=" mb-0 text-center text-white" style="font-size: 17px;">sandwicheras.</p>
-        <img src="./assets/redime/2000puntosboton.png" alt="2000puntos" class="img-fluid">
+        <p class="mb-4 mt-4 text-center text-white" style="font-size: 17px;">Sandwichera</p>
+        <button class="btn btn-amarillo btn-lg">1500Pts</button>
     </div>
-    <div>
+    <div class="d-flex justify-content-center flex-column align-items-center">
         <img src="./assets/redime/COMBO5icons.png" alt="combo-3" class="img-fluid">
-        <p class="mb-0 mt-4 text-center text-white" style="font-size: 17px;">Picadoras, baterías de</p>
-        <p class="mb-0 text-center text-white" style="font-size: 17px;">cocina, planchas,</p>
-        <p class=" mb-0 text-center text-white" style="font-size: 17px;">sandwicheras.</p>
-        <img src="./assets/redime/2000puntosboton.png" alt="2000puntos" class="img-fluid">
+        <p class="mb-4 mt-4 text-center text-white" style="font-size: 17px;">Picadora</p>
+        <button class="btn btn-amarillo btn-lg">1800Pts</button>
     </div>
-    <div>
+    <div class="d-flex justify-content-center flex-column align-items-center">
         <img src="./assets/redime/COMBO6icons.png" alt="combo-3" class="img-fluid">
-        <p class="mb-0 mt-4 text-center text-white" style="font-size: 17px;">Picadoras, baterías de</p>
-        <p class="mb-0 text-center text-white" style="font-size: 17px;">cocina, planchas,</p>
-        <p class=" mb-0 text-center text-white" style="font-size: 17px;">sandwicheras.</p>
-        <img src="./assets/redime/2000puntosboton.png" alt="2000puntos" class="img-fluid">
+        <p class="mb-4 mt-4 text-center text-white" style="font-size: 17px;">Batería de cocina</p>
+        <button class="btn btn-amarillo btn-lg">2000Pts</button>
     </div>
 </div>
 <app-logo-footer></app-logo-footer>

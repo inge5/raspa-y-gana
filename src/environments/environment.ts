@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'http://gane-raspa.bunker.josefernandonieto.com'
+  url: 'https://raspaapi.portalgane.com'
 };
 
 /*
