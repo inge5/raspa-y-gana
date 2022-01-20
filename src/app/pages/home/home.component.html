@@ -1,127 +1,250 @@
 <app-logo-header ruta=""></app-logo-header>
 <div class="row mt-5">
-    <div class="col-lg-8 col-sm-12">
-        <div class="d-flex">
-            <div class="" style="z-index: 1;">
-                <img src="./assets/home/mano_1home.png" alt="mano" class="img-fluid">
-            </div>
-            <div class="" style="transform: translate(-25%, 5%);">
-                <img src="./assets/home/raspa_1home.png" alt="mano" class="img-fluid">
-            </div>
+  <div class="col-lg-8 col-sm-12">
+    <div class="d-flex">
+      <div class="" style="z-index: 1">
+        <img src="./assets/home/mano_1home.png" alt="mano" class="img-fluid" />
+      </div>
+      <div class="" style="transform: translate(-25%, 5%)">
+        <img src="./assets/home/raspa_1home.png" alt="mano" class="img-fluid" />
+      </div>
+    </div>
+  </div>
+  <div
+    class="col-lg-4 col-sm-12 p-0 w-50 form-centrar-movil w-lg-25 w-xs-100"
+    style="border-radius: 23px"
+  >
+    <h3 class="p-2 text-center text-white m-0 bg-header-form fw-bold px-xs-5">
+      Regístrate
+    </h3>
+    <form
+      (ngSubmit)="PasarRuleta()"
+      [formGroup]="formulario"
+      class="p-4 body-form px-xs-5"
+    >
+      <div class="form-group mb-2">
+        <input
+          type="text"
+          placeholder="Nombre:"
+          class="form-control input-form"
+          [ngClass]="{ 'is-invalid': validarName, 'is-valid': correctoName }"
+          formControlName="name"
+        />
+        <ng-container *ngIf="Name?.touched && Name?.errors?.required">
+          <label class="text-danger fw-bold"
+            >El campo Nombre es requerido</label
+          >
+        </ng-container>
+      </div>
+      <div class="form-group mb-2">
+        <input
+          type="number"
+          placeholder="Cédula:"
+          class="form-control input-form"
+          [ngClass]="{
+            'is-invalid': validarDocument,
+            'is-valid': correctoDocument
+          }"
+          formControlName="document"
+        />
+        <ng-container *ngIf="Document?.touched && Document?.errors?.required">
+          <label class="text-danger fw-bold"
+            >El campo Cédula es requerido</label
+          >
+        </ng-container>
+        <ng-container *ngIf="Document?.errors?.min">
+          <label class="text-danger fw-bold"
+            >Debe tener mínimo 6 caracteres</label
+          >
+        </ng-container>
+        <ng-container *ngIf="Document?.errors?.max">
+          <label class="text-danger fw-bold"
+            >Debe tener máximo 10 caracteres</label
+          >
+        </ng-container>
+      </div>
+      <div class="form-group mb-2">
+        <input
+          type="text"
+          placeholder="Correo electrónico:"
+          class="form-control input-form"
+          [ngClass]="{ 'is-invalid': validarEmail, 'is-valid': correctoEmail }"
+          formControlName="email"
+        />
+        <ng-container *ngIf="Email?.touched && Email?.errors?.required">
+          <label class="text-danger fw-bold"
+            >El campo Correo electrónico es requerido</label
+          >
+        </ng-container>
+      </div>
+      <div class="form-group mb-2">
+        <input
+          type="number"
+          placeholder="Celular:"
+          class="form-control input-form"
+          [ngClass]="{ 'is-invalid': validarPhone, 'is-valid': correctoPhone }"
+          formControlName="phone"
+        />
+        <ng-container *ngIf="Phone?.touched && Phone?.errors?.required">
+          <label class="text-danger fw-bold"
+            >El campo Celular es requerido</label
+          >
+        </ng-container>
+        <ng-container *ngIf="Phone?.errors?.min">
+          <label class="text-danger fw-bold"
+            >Debe tener mínimo 7 caracteres</label
+          >
+        </ng-container>
+        <ng-container *ngIf="Phone?.errors?.max">
+          <label class="text-danger fw-bold"
+            >Debe tener máximo 10 caracteres</label
+          >
+        </ng-container>
+      </div>
+      <div class="form-group mb-2">
+        <input
+          type="text"
+          placeholder="Ingresa el código:"
+          class="form-control input-form"
+          [ngClass]="{ 'is-invalid': validarCode, 'is-valid': correctoCode }"
+          formControlName="code"
+        />
+        <ng-container *ngIf="Code?.touched && Code?.errors?.required">
+          <label class="text-danger fw-bold"
+            >El campo Código es requerido</label
+          >
+        </ng-container>
+        <ng-container *ngIf="Code?.errors?.minlength">
+          <label class="text-danger fw-bold"
+            >Debe tener mínimo
+            {{ Code?.errors?.minlength.requiredLength }} caracteres</label
+          >
+        </ng-container>
+        <ng-container *ngIf="Code?.errors?.maxlength">
+          <label class="text-danger fw-bold"
+            >Debe tener máximo
+            {{ Code?.errors?.maxlength.requiredLength }} caracteres</label
+          >
+        </ng-container>
+      </div>
+      <div class="form-group mb-4">
+        <label class="text-white"
+          >Ingresa el código de barras de la tabla.</label
+        >
+      </div>
+      <div class="form-group mb-2">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="flexCheckDefault"
+            formControlName="acepto"
+            name="acepto"
+          />
+          <label class="form-check-label text-white" for="flexCheckDefault">
+            Acepto política de datos
+          </label>
         </div>
-    </div>
-    <div class="col-lg-4 col-sm-12 p-0 w-50 form-centrar-movil w-lg-25 w-xs-100" style="border-radius: 23px;">
-        <h3 class="p-2 text-center text-white m-0 bg-header-form fw-bold px-xs-5">Regístrate</h3>
-        <form (ngSubmit)="PasarRuleta()" [formGroup]="formulario" class="p-4 body-form px-xs-5">
-            <div class="form-group mb-2">
-                <input type="text" placeholder="Nombre:" class="form-control input-form" [ngClass]="{'is-invalid': validarName, 'is-valid': correctoName}" formControlName="name">
-                <ng-container *ngIf="Name?.touched && Name?.errors?.required">
-                    <label class="text-danger fw-bold">El campo Nombre es requerido</label>
-                </ng-container>
-            </div>
-            <div class="form-group mb-2">
-                <input type="number" placeholder="Cédula:" class="form-control input-form" [ngClass]="{'is-invalid': validarDocument, 'is-valid': correctoDocument}" formControlName="document">
-                <ng-container *ngIf="Document?.touched && Document?.errors?.required">
-                    <label class="text-danger fw-bold">El campo Cédula es requerido</label>
-                </ng-container>
-                <ng-container *ngIf="Document?.errors?.min">
-                    <label class="text-danger fw-bold">Debe tener mínimo 6 caracteres</label>
-                </ng-container>
-                <ng-container *ngIf="Document?.errors?.max">
-                    <label class="text-danger fw-bold">Debe tener máximo 10 caracteres</label>
-                </ng-container>
-            </div>
-            <div class="form-group mb-2">
-                <input type="text" placeholder="Correo electrónico:" class="form-control input-form" [ngClass]="{'is-invalid': validarEmail, 'is-valid': correctoEmail}" formControlName="email">
-                <ng-container *ngIf="Email?.touched && Email?.errors?.required">
-                    <label class="text-danger fw-bold">El campo Correo electrónico es requerido</label>
-                </ng-container>
-            </div>
-            <div class="form-group mb-2">
-                <input type="number" placeholder="Celular:" class="form-control input-form" [ngClass]="{'is-invalid': validarPhone, 'is-valid': correctoPhone}" formControlName="phone">
-                <ng-container *ngIf="Phone?.touched && Phone?.errors?.required">
-                    <label class="text-danger fw-bold">El campo Celular es requerido</label>
-                </ng-container>
-                <ng-container *ngIf="Phone?.errors?.min">
-                    <label class="text-danger fw-bold">Debe tener mínimo 7 caracteres</label>
-                </ng-container>
-                <ng-container *ngIf="Phone?.errors?.max">
-                    <label class="text-danger fw-bold">Debe tener máximo 10 caracteres</label>
-                </ng-container>
-            </div>
-            <div class="form-group mb-2">
-                <input type="number" placeholder="Ingresa el código:" class="form-control input-form" [ngClass]="{'is-invalid': validarCode, 'is-valid': correctoCode}" formControlName="code">
-                <ng-container *ngIf="Code?.touched && Code?.errors?.required">
-                    <label class="text-danger fw-bold">El campo Código es requerido</label>
-                </ng-container>
-                <ng-container *ngIf="Code?.errors?.min">
-                    <label class="text-danger fw-bold">Debe tener mínimo 20 caracteres</label>
-                </ng-container>
-                <ng-container *ngIf="Code?.errors?.max">
-                    <label class="text-danger fw-bold">Debe tener máximo 20 caracteres</label>
-                </ng-container>
-            </div>
-            <div class="form-group mb-4">
-                <label class="text-white">Ingresa el código de barras de la tabla.</label>
-            </div>
-            <div class="form-group mb-2">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="flexCheckDefault" formControlName="acepto"
-                        name="acepto">
-                    <label class="form-check-label text-white" for="flexCheckDefault">
-                        Acepto política de datos
-                    </label>
-                </div>
-            </div>
-            <div class="form-group text-center mt-4">
-                <button class="btn btn-blanco-form btn-lg btn-form" type="submit">Juega</button>
-            </div>
-        </form>
-    </div>
+      </div>
+      <div class="form-group text-center mt-4">
+        <button class="btn btn-blanco-form btn-lg btn-form" type="submit">
+          Juega
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
 <div class="row mt-5">
-    <div class="col-md-6">
-        <img src="./assets/home/te_gustan_4home.png" alt="te-gusta-home" class="img-fluid">
-    </div>
-    <div class="col-md-6">
-        <img src="./assets/home/ruleta_fullRecurso_1_1home.png" alt="ruleta-home" class="img-fluid">
-    </div>
+  <div class="col-md-6">
+    <img
+      src="./assets/home/te_gustan_4home.png"
+      alt="te-gusta-home"
+      class="img-fluid"
+    />
+  </div>
+  <div class="col-md-6">
+    <img
+      src="./assets/home/ruleta_fullRecurso_1_1home.png"
+      alt="ruleta-home"
+      class="img-fluid"
+    />
+  </div>
 </div>
 <div class="d-flex justify-content-center align-items-center">
-    <div>
-        <img src="./assets/home/tus_puntos_1home.png" alt="puntos" class="img-fluid">
-    </div>
+  <div>
+    <img
+      src="./assets/home/tus_puntos_1home.png"
+      alt="puntos"
+      class="img-fluid"
+    />
+  </div>
 </div>
-<div class="d-flex flex-wrap justify-content-center" style="gap: 78px;">
-    <div class="d-flex justify-content-center flex-column align-items-center">
-        <img src="./assets/redime/COMBO1icons.png" alt="combo-1" class="img-fluid">
-        <p class="mb-4 mt-4 text-center text-white" style="font-size: 17px;">Llavero + Lapicero + Audífonos</p>
-        <button class="btn btn-amarillo btn-lg">500Pts</button>
-    </div>
-    <div class="d-flex justify-content-center flex-column align-items-center">
-        <img src="./assets/redime/COMBO2icons.png" alt="combo-2" class="img-fluid">
-        <p class="mb-4 mt-4 text-center text-white" style="font-size: 17px;">Termos + Lapicero.</p>
-        <button class="btn btn-amarillo btn-lg">1000Pts</button>
-    </div>
-    <div class="d-flex justify-content-center flex-column align-items-center">
-        <img src="./assets/redime/COMBO3icons.png" alt="combo-3" class="img-fluid">
-        <p class="mb-4 mt-4 text-center text-white" style="font-size: 17px;">Paraguas + Plancha</p>
-        <button class="btn btn-amarillo btn-lg">1200Pts</button>
-    </div>
-    <div class="d-flex justify-content-center flex-column align-items-center">
-        <img src="./assets/redime/COMBO4icons.png" alt="combo-3" class="img-fluid">
-        <p class="mb-4 mt-4 text-center text-white" style="font-size: 17px;">Sandwichera</p>
-        <button class="btn btn-amarillo btn-lg">1500Pts</button>
-    </div>
-    <div class="d-flex justify-content-center flex-column align-items-center">
-        <img src="./assets/redime/COMBO5icons.png" alt="combo-3" class="img-fluid">
-        <p class="mb-4 mt-4 text-center text-white" style="font-size: 17px;">Picadora</p>
-        <button class="btn btn-amarillo btn-lg">1800Pts</button>
-    </div>
-    <div class="d-flex justify-content-center flex-column align-items-center">
-        <img src="./assets/redime/COMBO6icons.png" alt="combo-3" class="img-fluid">
-        <p class="mb-4 mt-4 text-center text-white" style="font-size: 17px;">Batería de cocina</p>
-        <button class="btn btn-amarillo btn-lg">2000Pts</button>
-    </div>
+<div class="d-flex flex-wrap justify-content-center" style="gap: 78px">
+  <div class="d-flex justify-content-center flex-column align-items-center">
+    <img
+      src="./assets/redime/COMBO1icons.png"
+      alt="combo-1"
+      class="img-fluid"
+    />
+    <p class="mb-4 mt-4 text-center text-white" style="font-size: 17px">
+      Llavero + Lapicero + Audífonos
+    </p>
+    <button class="btn btn-amarillo btn-lg">500Pts</button>
+  </div>
+  <div class="d-flex justify-content-center flex-column align-items-center">
+    <img
+      src="./assets/redime/COMBO2icons.png"
+      alt="combo-2"
+      class="img-fluid"
+    />
+    <p class="mb-4 mt-4 text-center text-white" style="font-size: 17px">
+      Termos + Lapicero.
+    </p>
+    <button class="btn btn-amarillo btn-lg">1000Pts</button>
+  </div>
+  <div class="d-flex justify-content-center flex-column align-items-center">
+    <img
+      src="./assets/redime/COMBO3icons.png"
+      alt="combo-3"
+      class="img-fluid"
+    />
+    <p class="mb-4 mt-4 text-center text-white" style="font-size: 17px">
+      Paraguas + Plancha
+    </p>
+    <button class="btn btn-amarillo btn-lg">1200Pts</button>
+  </div>
+  <div class="d-flex justify-content-center flex-column align-items-center">
+    <img
+      src="./assets/redime/COMBO4icons.png"
+      alt="combo-3"
+      class="img-fluid"
+    />
+    <p class="mb-4 mt-4 text-center text-white" style="font-size: 17px">
+      Sandwichera
+    </p>
+    <button class="btn btn-amarillo btn-lg">1500Pts</button>
+  </div>
+  <div class="d-flex justify-content-center flex-column align-items-center">
+    <img
+      src="./assets/redime/COMBO5icons.png"
+      alt="combo-3"
+      class="img-fluid"
+    />
+    <p class="mb-4 mt-4 text-center text-white" style="font-size: 17px">
+      Picadora
+    </p>
+    <button class="btn btn-amarillo btn-lg">1800Pts</button>
+  </div>
+  <div class="d-flex justify-content-center flex-column align-items-center">
+    <img
+      src="./assets/redime/COMBO6icons.png"
+      alt="combo-3"
+      class="img-fluid"
+    />
+    <p class="mb-4 mt-4 text-center text-white" style="font-size: 17px">
+      Batería de cocina
+    </p>
+    <button class="btn btn-amarillo btn-lg">2000Pts</button>
+  </div>
 </div>
 <app-logo-footer></app-logo-footer>
