@@ -235,11 +235,6 @@ export class RuletaComponent implements OnInit {
       },
       (errors: any) => {
         if (errors.error.errors?.document[0]) {
-          Swal.fire('No existe ese número de documento.', '', 'error').then(
-            () => {
-              this.router.navigateByUrl('');
-            }
-          );
         } else {
           Swal.fire(errors.error.message, '', 'error');
         }
