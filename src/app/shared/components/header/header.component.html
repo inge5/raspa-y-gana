@@ -1,31 +1,70 @@
 <nav class="bg-azul px-3 py-1 d-flex justify-content-end">
-    <ng-container *ngIf="user else noLogueado">
-        <h4 class="text-white me-4"><span class="fw-bold">¡Hola!</span> CC.{{ user.document }}</h4>
-    </ng-container>
-    <ng-template #noLogueado>
-        <button class="btn btn-outline-azul text-white fw-bold me-4 btn-border-radius-header" data-bs-toggle="modal" data-bs-target="#exampleModal">Consulta y Redime</button>
-    </ng-template>
-    
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Ingrese su número de documento</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <div class="form-group">
-                  <label for="document">Número de documento: </label>
-                  <input type="number" class="form-control" placeholder="Ingrese su número de documento" name="document" [(ngModel)]="document.document" id="document">
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="validarDocumento()">Ingresar</button>
-            </div>
+  <ng-container *ngIf="user; else noLogueado">
+    <h4 class="text-white me-4">
+      <span class="fw-bold">¡Hola!</span> CC.{{ user.document }}
+    </h4>
+  </ng-container>
+  <ng-template #noLogueado>
+    <!-- <button class="btn btn-outline-azul text-white fw-bold me-4 btn-border-radius-header" data-bs-toggle="modal" data-bs-target="#exampleModal">Consulta y Redime</button> -->
+    <button
+      class="btn btn-outline-azul text-white fw-bold me-4 btn-border-radius-header"
+    >
+      Consulta y Redime
+    </button>
+  </ng-template>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Ingrese su número de documento
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="document">Número de documento: </label>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Ingrese su número de documento"
+              name="document"
+              [(ngModel)]="document.document"
+              id="document"
+            />
           </div>
         </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancelar
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-dismiss="modal"
+            (click)="validarDocumento()"
+          >
+            Ingresar
+          </button>
+        </div>
       </div>
-    
+    </div>
+  </div>
 </nav>
